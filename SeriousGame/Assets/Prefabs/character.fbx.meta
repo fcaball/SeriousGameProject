@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:SeriousGame/Assets/Prefabs/character.fbx.meta
 guid: a59afeeb8e3e520148f89dbb694e6cbf
+========
+guid: 1f7971f0f7ccd6945b072366f2f1249c
+>>>>>>>> Stashed changes:SeriousGame/Assets/Prefabs/maisonEscapeVide (1).obj.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
