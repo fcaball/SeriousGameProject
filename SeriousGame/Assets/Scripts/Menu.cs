@@ -12,7 +12,6 @@ public class Menu : MonoBehaviour
     public Canvas CanvasMenu;
     public Canvas CanvasSettings;
 
-
     void Start()
     {
         play.onClick.AddListener(ClickPlay);
