@@ -37,11 +37,11 @@ public class MouvementJoueur : MonoBehaviour
             mouvement *= speed;
 
             //si la touche ESPACE est pressee
-            /*if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump"))
             {
                 //on dit que notre point sur l'axe y augmente de la valeur de jumpSpeed 
                 mouvement.y = jumpSpeed;
-            }*/
+            }
         }
         //maintenant si le joueur est en l'air
         //on le soumet a la gravite
