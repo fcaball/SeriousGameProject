@@ -14,7 +14,7 @@ namespace SojaExiles
 
         float xRotation = 0f;
 
-        public Transform _cursor;
+        //public Transform _cursor;
 
         // Start is called before the first frame update
         void Start()
