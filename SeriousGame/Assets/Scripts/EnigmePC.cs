@@ -1,6 +1,9 @@
+using SojaExiles;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class EnigmePC : MonoBehaviour
 {
@@ -8,15 +11,18 @@ public class EnigmePC : MonoBehaviour
     public Canvas canvas;
     public Canvas signIn;
     private bool onPC;
-    /*PlayerMovement monScript;*/
-
+    PlayerMovement playerMovement_script;
+    public Button enter;
+    public TMP_InputField saisie;
+    private string reponse = "9067";
 
     void Start()
     {
         canvas.gameObject.SetActive(false);
         signIn.gameObject.SetActive(false);
         onPC = false;
-        /*monScript = player.GetComponent<MouvementJoueur>();*/    
+        playerMovement_script = player.GetComponent<PlayerMovement>();
+        enter.onClick.AddListener(Click);
     }
 
     void Update()
@@ -36,18 +42,52 @@ public class EnigmePC : MonoBehaviour
         if(Input.GetKey(KeyCode.F) && distance < 2f)
         {
             onPC = true;
+            Cursor.lockState = CursorLockMode.None;
             signIn.gameObject.SetActive(true);
             canvas.gameObject.SetActive(false);
-            /*monScript.enabled = false;*/
+            playerMovement_script.enabled = false;
         }
 
         if(Input.GetKey(KeyCode.Escape) && onPC)
         {
             onPC = false;
+            Cursor.lockState = CursorLockMode.Locked;
             signIn.gameObject.SetActive(false);
             canvas.gameObject.SetActive(true);
-            /*monScript.enabled = true;*/
+            playerMovement_script.enabled = true;
 
         }
+    }
+
+    void Click()
+    {
+        ReponseSaisie();
+    }
+
+    public void ReponseSaisie()
+    {
+        string UserReponse = saisie.text;
+        GetFocus();
+
+        if (UserReponse == reponse)
+        {
+            saisie.text = null;
+            GetFocus();
+            signIn.gameObject.SetActive(false);
+            GameVariables.mdp_find = true;
+        }
+        else
+        {
+            saisie.text = null;
+            GetFocus();
+        }
+
+    }
+
+
+    public void GetFocus()
+    {
+        saisie.Select();
+        saisie.ActivateInputField();
     }
 }
