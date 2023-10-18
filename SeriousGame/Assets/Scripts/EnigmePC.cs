@@ -8,7 +8,7 @@ public class EnigmePC : MonoBehaviour
     public Canvas canvas;
     public Canvas signIn;
     private bool onPC;
-    /*MouvementJoueur monScript;*/
+    /*PlayerMovement monScript;*/
 
 
     void Start()

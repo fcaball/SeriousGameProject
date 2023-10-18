@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -664,7 +663,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3761,15 +3760,6 @@ PrefabInstance:
     - target: {fileID: 1927095934725912877, guid: a9b081014bad86f4a80b60284279d21b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927095934725912877, guid: a9b081014bad86f4a80b60284279d21b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927095934725912877, guid: a9b081014bad86f4a80b60284279d21b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24.89
-      value: -7.506
       objectReference: {fileID: 0}
     - target: {fileID: 1927095934725912877, guid: a9b081014bad86f4a80b60284279d21b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8020,7 +8010,7 @@ PrefabInstance:
     - target: {fileID: 6673418334389223436, guid: 7699f5af06713974ba61777a8a830f6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 08794bf2a41d5b8e280a1e4106fdc5f9, type: 2}
+      objectReference: {fileID: 2100000, guid: 5af27c19293d0ff4cb00b35cc2189634, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12766,7 +12756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1487503440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13400,6 +13390,7 @@ GameObject:
   - component: {fileID: 1561591945}
   - component: {fileID: 1561591947}
   - component: {fileID: 1561591946}
+  - component: {fileID: 1561591948}
   m_Layer: 0
   m_Name: room_38_194 (6)
   m_TagString: Untagged
@@ -13416,7 +13407,7 @@ Transform:
   m_GameObject: {fileID: 1561591944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1700.5, y: 0, z: 871.2}
+  m_LocalPosition: {x: -1700.5, y: 0, z: 911.9}
   m_LocalScale: {x: 0.33, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13472,6 +13463,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561591944}
   m_Mesh: {fileID: -1232577001920263452, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
+--- !u!65 &1561591948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561591944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 393.3724, y: 12, z: 395.25015}
+  m_Center: {x: -1001.2903, y: 256, z: 1202.419}
 --- !u!1 &1564401029
 GameObject:
   m_ObjectHideFlags: 0
@@ -15832,7 +15844,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 3.75, y: 261.99997, z: 401}
   m_Center: {x: -802.7289, y: 381.09998, z: 800.5435}
