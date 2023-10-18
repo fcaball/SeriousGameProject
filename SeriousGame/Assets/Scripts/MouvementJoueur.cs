@@ -13,14 +13,14 @@ public class MouvementJoueur : MonoBehaviour
     public float sensi = 30f;
     private Vector3 mouvement = Vector3.zero;
     CharacterController player;
-
+    public Animator animator;
 
     void Start()
     {
         //recuperation du composant CharacterController
         player = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -35,13 +35,14 @@ public class MouvementJoueur : MonoBehaviour
             mouvement = transform.TransformDirection(mouvement);
             //on multiplie le vector3 par la vitesse de deplacement
             mouvement *= speed;
-
+            if(Input.GetKey(KeyCode.Z))
+                animator.Play("walking");
             //si la touche ESPACE est pressee
-            if (Input.GetButton("Jump"))
+            /*if (Input.GetButton("Jump"))
             {
                 //on dit que notre point sur l'axe y augmente de la valeur de jumpSpeed 
                 mouvement.y = jumpSpeed;
-            }
+            }*/
         }
         //maintenant si le joueur est en l'air
         //on le soumet a la gravite
