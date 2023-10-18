@@ -6,40 +6,27 @@ public class takePhone : MonoBehaviour
 {
     public GameObject player;
     public Canvas canvas;
-    PlayerMovement mvtJoueur;
+    /*PlayerMovement mvtJoueur;*/
     // Start is called before the first frame update
     void Start()
     {
         canvas.gameObject.SetActive(false);
-        mvtJoueur = player.GetComponent<PlayerMovement>();
+        /*mvtJoueur = player.GetComponent<PlayerMovement>();*/
         
     }
 
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
             canvas.gameObject.SetActive(true);
-            mvtJoueur.enabled = false;
+            /*mvtJoueur.enabled = false;*/
         }
     }
 
-    private void OnTriggerExit(Collider other){
+    private void OnTriggerExit(Collider other)
+    {
         canvas.gameObject.SetActive(false);
-        mvtJoueur.enabled = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        /*mvtJoueur.enabled = true;*/
+        // Start is called before the first frame update
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void onTriggerEnter(Collider other){
-        if(other.tag == "Player"){
-            Debug.Log("Collision");
-        }
-    }
 }
