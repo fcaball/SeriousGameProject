@@ -25,5 +25,21 @@ public class takePhone : MonoBehaviour
     private void OnTriggerExit(Collider other){
         canvas.gameObject.SetActive(false);
         mvtJoueur.enabled = true;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void onTriggerEnter(Collider other){
+        if(other.tag == "Player"){
+            Debug.Log("Collision");
+        }
     }
 }

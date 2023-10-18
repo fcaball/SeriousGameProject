@@ -8,7 +8,7 @@ public class EnigmePC : MonoBehaviour
     public Canvas canvas;
     public Canvas signIn;
     private bool onPC;
-    MouvementJoueur monScript;
+    /*MouvementJoueur monScript;*/
 
 
     void Start()
@@ -16,7 +16,7 @@ public class EnigmePC : MonoBehaviour
         canvas.gameObject.SetActive(false);
         signIn.gameObject.SetActive(false);
         onPC = false;
-        monScript = player.GetComponent<MouvementJoueur>();
+        /*monScript = player.GetComponent<MouvementJoueur>();*/    
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class EnigmePC : MonoBehaviour
             onPC = true;
             signIn.gameObject.SetActive(true);
             canvas.gameObject.SetActive(false);
-            monScript.enabled = false;
+            /*monScript.enabled = false;*/
         }
 
         if(Input.GetKey(KeyCode.Escape) && onPC)
@@ -46,7 +46,7 @@ public class EnigmePC : MonoBehaviour
             onPC = false;
             signIn.gameObject.SetActive(false);
             canvas.gameObject.SetActive(true);
-            monScript.enabled = true;
+            /*monScript.enabled = true;*/
 
         }
     }
