@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Object
   - motDePasse
+  - item
   layers:
   - Default
   - TransparentFX

@@ -11,20 +11,22 @@ public class EnigmePC : MonoBehaviour
     public GameObject player;
     public Canvas canvas;
     public Canvas signIn;
-    public Canvas canva_drawer;
+    //public Canvas canva_drawer;
     private bool onPC;
     PlayerMovement playerMovement_script;
     public Button enter;
     public TMP_InputField saisie;
     private string reponse = "9067";
     /*#endregion*/
+
+    
     
 
     void Start()
     {
         canvas.gameObject.SetActive(false);
         signIn.gameObject.SetActive(false);
-        canva_drawer.gameObject.SetActive(false);
+        //canva_drawer.gameObject.SetActive(false);
         onPC = false;
         playerMovement_script = player.GetComponent<PlayerMovement>();
         enter.onClick.AddListener(Click);
@@ -60,15 +62,6 @@ public class EnigmePC : MonoBehaviour
             signIn.gameObject.SetActive(false);
             canvas.gameObject.SetActive(true);
             playerMovement_script.enabled = true;
-        }
-
-        if(GameVariables.pc_drawer_opened == true)
-        {
-            canva_drawer.gameObject.SetActive(true);
-        }
-        else
-        {
-            canva_drawer.gameObject.SetActive(false);
         }
     }
 
