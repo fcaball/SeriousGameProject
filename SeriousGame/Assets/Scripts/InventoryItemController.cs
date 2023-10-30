@@ -5,7 +5,8 @@ using UnityEngine;
 public class InventoryItemController : MonoBehaviour
 {
     Item item;
-    bool active = false;
+    bool active_Paper = false;
+    bool active_CarlaPhone = false;
 
     public void AddItem(Item new_item)
     {
@@ -14,15 +15,16 @@ public class InventoryItemController : MonoBehaviour
 
     public void UseItem()
     {
-        active = !active;
-        switch(item.itemType)
+        switch (item.itemType)
         {
             case Item.ItemType.Paper:
-                GameVariables.canvas[0].gameObject.SetActive(active);
+                active_Paper = !active_Paper;
+                GameVariables.canvas_PapierPC.gameObject.SetActive(active_Paper);
                 break;
 
-            case Item.ItemType.Phone:
-                GameVariables.canvas[1].gameObject.SetActive(active);
+            case Item.ItemType.CarlaPhone:
+                active_CarlaPhone = !active_CarlaPhone;
+                GameVariables.canvas_CarlaPhone.gameObject.SetActive(active_CarlaPhone);
                 break;
 
             default:
