@@ -5423,6 +5423,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 600, y: 261.99997, z: 3.75}
   m_Center: {x: -901.7262, y: 381.09998, z: 201.91858}
+--- !u!1 &642204402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5469407491103787986, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
+  m_PrefabInstance: {fileID: 1191477869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &642204406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642204402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 202.12778, y: 261.99997, z: 3.75}
+  m_Center: {x: -102.790085, y: 381.09998, z: 1100.9186}
 --- !u!1 &655412278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6136463628720445902, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
@@ -7274,7 +7300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860802298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1388030058}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: CloseInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &860802298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11312,16 +11350,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 8006e27ba3b89f64591a8f65e69d439f, type: 2}
     - target: {fileID: -504997603657486141, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -504997603657486141, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.84
+      value: 0.8316
       objectReference: {fileID: 0}
     - target: {fileID: -504997603657486141, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.03
+      value: 6.46
       objectReference: {fileID: 0}
     - target: {fileID: -504997603657486141, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.93
+      value: 32.85
       objectReference: {fileID: 0}
     - target: {fileID: -378974861119321499, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11992,6 +12034,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8098657846620160403, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2039774180}
+    - targetCorrespondingSourceObject: {fileID: -5469407491103787986, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 642204406}
     - targetCorrespondingSourceObject: {fileID: -2040565594920787602, guid: dd516107e29d49b4da44e8252a6baef8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2007339705}
@@ -14024,7 +14069,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388030055}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 218e8d5c87b2ec549a7c43cceef7ae07, type: 3}
   m_Name: 
@@ -14032,7 +14077,6 @@ MonoBehaviour:
   inventory: {fileID: 1405108281}
   player: {fileID: 1873182916}
   camera: {fileID: 1173097321}
-  closeButton: {fileID: 860802297}
 --- !u!4 &1388030057
 Transform:
   m_ObjectHideFlags: 0
@@ -14064,6 +14108,9 @@ MonoBehaviour:
   ItemContent: {fileID: 899511367}
   InventoryItem: {fileID: 5946569073074408167, guid: 98ef46e9f528d3c4185ea77082be5791, type: 3}
   InventoryItems: []
+  inventory: {fileID: 1405108281}
+  player: {fileID: 1873182916}
+  camera: {fileID: 1173097321}
 --- !u!1 &1393949401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3144883804580417167, guid: a7b5e89dc0c045e409639e114d493fd2, type: 3}
