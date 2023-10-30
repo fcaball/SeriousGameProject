@@ -9,6 +9,7 @@ public class ManageCanvas : MonoBehaviour
         //GameVariables.canvas_BenoitPhone = GameObject.FindGameObjectWithTag("ItemCanvas");
         GameVariables.canvas_CarlaPhone = GameObject.FindGameObjectWithTag("Canvas_CarlaPhone");
         GameVariables.canvas_PapierPC = GameObject.FindGameObjectWithTag("Canvas_papier");
+        GameVariables.canvas_Wallet = GameObject.FindGameObjectWithTag("Canvas_papier");
 
         GameVariables.canvas_PapierPC.SetActive(false);
         GameVariables.canvas_CarlaPhone.SetActive(false);

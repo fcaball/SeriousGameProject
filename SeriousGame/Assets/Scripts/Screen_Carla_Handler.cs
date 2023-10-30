@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+
 
 public class Screen_Carla_Handler : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class Screen_Carla_Handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        secondEcran.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,8 +24,9 @@ public class Screen_Carla_Handler : MonoBehaviour
         firstEcran.gameObject.SetActive(true);
     }
 
-    public void UserInput(InputField userField)
+    public void UserInput(TMP_InputField userField)
     {
+        Debug.Log("ici");
         if (userField.text == "mot 2 pass")
         {
             firstEcran.gameObject.SetActive(false);

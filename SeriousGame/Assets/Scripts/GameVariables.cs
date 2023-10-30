@@ -7,5 +7,6 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_CarlaPhone;
     public static GameObject canvas_BenoitPhone;
     public static GameObject canvas_PapierPC;
-    public static Transform ItemContent;
+    public static GameObject canvas_Wallet;
+    //public static Transform ItemContent;
 }
