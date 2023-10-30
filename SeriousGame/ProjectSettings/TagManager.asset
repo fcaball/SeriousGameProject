@@ -7,7 +7,9 @@ TagManager:
   - Object
   - motDePasse
   - item
-  - ItemCanvas
+  - Canvas_papier
+  - Canvas_CarlaPhone
+  - Canvas_BenoitPhone
   layers:
   - Default
   - TransparentFX
