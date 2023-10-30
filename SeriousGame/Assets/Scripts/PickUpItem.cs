@@ -10,20 +10,19 @@ public class PickUpItem : MonoBehaviour
     public Item item;
 
 
-    void Update()
+    private void OnMouseDown()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        /*Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         float distance = Vector3.Distance(cam.transform.position, gameObject.transform.position);
         if (Physics.Raycast(ray, out hit, 10))
         {
-            //Debug.Log(hit.transform.tag);
-            if (hit.transform.tag == "item" && Input.GetMouseButtonDown(0) && distance < 5f)
-            {
+            if (hit.transform.tag == "item" && distance < 5f)
+            {*/
                 InventoryManager.Instance.Add(item);
                 InventoryManager.Instance.ListItems();
 
                 Destroy(gameObject);
-            }
-        }
+         /*   }
+        }*/
     }
 }

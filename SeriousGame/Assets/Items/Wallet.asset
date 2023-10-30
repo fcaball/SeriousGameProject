@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 4
   itemName: Wallet
   value: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 12c125d76285a2848a72c463d9dcac0f, type: 3}
   itemType: 3
