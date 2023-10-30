@@ -16,7 +16,8 @@ public class Item : ScriptableObject
     {
         Paper,
         CarlaPhone,
-        BenoitPhone
+        BenoitPhone,
+        Wallet
     }
  
 }

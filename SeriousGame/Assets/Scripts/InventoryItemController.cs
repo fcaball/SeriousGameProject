@@ -13,6 +13,12 @@ public class InventoryItemController : MonoBehaviour
         item = new_item;
     }
 
+    public void RemoveItem()
+    {
+        InventoryManager.Instance.Remove(item);
+        Destroy(gameObject);
+    }
+
     public void UseItem()
     {
         switch (item.itemType)

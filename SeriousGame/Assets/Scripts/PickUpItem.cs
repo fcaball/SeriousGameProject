@@ -16,7 +16,7 @@ public class PickUpItem : MonoBehaviour
         float distance = Vector3.Distance(cam.transform.position, gameObject.transform.position);
         if (Physics.Raycast(ray, out hit, 10))
         {
-            Debug.Log(hit.transform.tag);
+            //Debug.Log(hit.transform.tag);
             if (hit.transform.tag == "item" && Input.GetMouseButtonDown(0) && distance < 5f)
             {
                 InventoryManager.Instance.Add(item);
