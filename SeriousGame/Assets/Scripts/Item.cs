@@ -17,7 +17,11 @@ public class Item : ScriptableObject
         Paper,
         CarlaPhone,
         BenoitPhone,
-        Wallet
+        Wallet,
+        Notice,
+        Ordonnance,
+        Pilulier,
+        Medicaments
     }
  
 }

@@ -20,6 +20,8 @@ public class PickUpItem : MonoBehaviour
             {*/
                 InventoryManager.Instance.Add(item);
 
+                InventoryManager.Instance.ListItems();
+
                 Destroy(gameObject);
          /*   }
         }*/

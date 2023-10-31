@@ -11,5 +11,9 @@ public class GameVariables : MonoBehaviour
 
     public static bool CarlaEnigmaSolved;
 
+    public static GameObject canvas_Notice;
+    public static GameObject canvas_Ordonnance;
+    public static GameObject canvas_Pilulier;
+    public static GameObject canvas_Medicaments;
     //public static Transform ItemContent;
 }
