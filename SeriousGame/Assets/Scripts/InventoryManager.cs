@@ -21,6 +21,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject player;
     public GameObject camera;
 
+    public GridLayoutGroup grid;
+
     private void Awake()
     {
         Instance = this;
@@ -31,11 +33,13 @@ public class InventoryManager : MonoBehaviour
         inventory.gameObject.SetActive(false);
         playerMovement_script = player.GetComponent<PlayerMovement>();
         camera_script = camera.GetComponent<MouseLook>();
+        GameVariables.CarlaEnigmaSolved = false;
     }
 
     public void Add(Item item)
     {
         Items.Add(item);
+        SetInventoryItems();
     }
 
     public void Remove(Item item)
@@ -43,12 +47,17 @@ public class InventoryManager : MonoBehaviour
         Items.Remove(item);
     }
 
-    public void CloseInventory()
+    public void ClearDuplicate()
     {
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
+    }
+
+    public void CloseInventory()
+    {
+        //ClearDuplicate();
         inventory.gameObject.SetActive(false);
         playerMovement_script.enabled = true;
         camera_script.enabled = true;
@@ -57,12 +66,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-        foreach (Transform item in ItemContent)
-        {
-            Destroy(item.gameObject);
-        }
-
-
+        //ClearDuplicate();
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -73,30 +77,30 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.icon;
         }
 
-        SetInventoryItems();
+        //SetInventoryItems();
     }
 
     public void SetInventoryItems()
     {
-        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-        Debug.Log("InventoryItems : " + InventoryItems.Length);
-        Debug.Log("Items : " + Items.Count);
+        //InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+        
+       /* Debug.Log("InventoryItems : " + InventoryItems.Length);
+        Debug.Log("ItemContent : " + ItemContent.childCount);
+        Debug.Log("Items : " + Items.Count);*/
 
         for (int i = 0; i < Items.Count; i++)
         {
-            InventoryItems[i].AddItem(Items[i]);
+            //InventoryItems[i].AddItem(Items[i]);
+            ItemContent.GetChild(i).GetChild(1).GetComponent<Image>().sprite = Items[i].icon;
         }
-
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.I))
         {
-            /*foreach (Transform item in ItemContent)
-            {
-                Destroy(item.gameObject);
-            }*/
+            //ClearDuplicate();
+            //ListItems();
             inventory.gameObject.SetActive(true);
             playerMovement_script.enabled = false;
             camera_script.enabled = false;

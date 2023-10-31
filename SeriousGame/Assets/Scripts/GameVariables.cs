@@ -8,5 +8,8 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_BenoitPhone;
     public static GameObject canvas_PapierPC;
     public static GameObject canvas_Wallet;
+
+    public static bool CarlaEnigmaSolved;
+
     //public static Transform ItemContent;
 }
