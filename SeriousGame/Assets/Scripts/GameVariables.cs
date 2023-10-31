@@ -15,5 +15,6 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_Ordonnance;
     public static GameObject canvas_Pilulier;
     public static GameObject canvas_Medicaments;
-    //public static Transform ItemContent;
+
+    public static GameObject canvas_Photo;
 }

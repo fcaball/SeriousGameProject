@@ -18,6 +18,7 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_Ordonnance = GameObject.FindGameObjectWithTag("Canvas_Ordonnance");
         GameVariables.canvas_Pilulier = GameObject.FindGameObjectWithTag("Canvas_Pilulier");
         GameVariables.canvas_Medicaments = GameObject.FindGameObjectWithTag("Canvas_Medicaments");
+        GameVariables.canvas_Photo = GameObject.FindGameObjectWithTag("Canvas_Puzzle");
 
         GameVariables.canvas_PapierPC.SetActive(false);
         GameVariables.canvas_CarlaPhone.SetActive(false);
@@ -25,5 +26,6 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_Ordonnance.SetActive(false);
         GameVariables.canvas_Pilulier.SetActive(false);
         GameVariables.canvas_Medicaments.SetActive(false);
+        GameVariables.canvas_Photo.SetActive(false);
     }
 }

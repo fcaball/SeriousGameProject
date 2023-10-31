@@ -21,7 +21,8 @@ public class Item : ScriptableObject
         Notice,
         Ordonnance,
         Pilulier,
-        Medicaments
+        Medicaments,
+        Photo
     }
  
 }

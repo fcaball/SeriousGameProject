@@ -63,6 +63,10 @@ public class InventoryItemController : MonoBehaviour
                 GameVariables.canvas_Medicaments.gameObject.SetActive(active_Medicaments);
                 break;
 
+            case Item.ItemType.Photo:
+                GameVariables.canvas_Photo.SetActive(!GameVariables.canvas_Photo.activeSelf);
+                break;
+
             default:
                 break;
         }
