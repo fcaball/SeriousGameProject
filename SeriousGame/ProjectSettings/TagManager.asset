@@ -11,6 +11,9 @@ TagManager:
   - Canvas_CarlaPhone
   - Canvas_BenoitPhone
   - Canvas_Wallet
+  - Canvas_Notice
+  - Canvas_Ordonnance
+  - Canvas_Pilulier
   layers:
   - Default
   - TransparentFX

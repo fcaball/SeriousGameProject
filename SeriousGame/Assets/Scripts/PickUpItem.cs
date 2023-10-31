@@ -19,6 +19,7 @@ public class PickUpItem : MonoBehaviour
             if (hit.transform.tag == "item" && distance < 5f)
             {*/
                 InventoryManager.Instance.Add(item);
+
                 InventoryManager.Instance.ListItems();
 
                 Destroy(gameObject);

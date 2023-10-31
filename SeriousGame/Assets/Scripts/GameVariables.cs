@@ -8,5 +8,9 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_BenoitPhone;
     public static GameObject canvas_PapierPC;
     public static GameObject canvas_Wallet;
+    public static GameObject canvas_Notice;
+    public static GameObject canvas_Ordonnance;
+    public static GameObject canvas_Pilulier;
+    public static GameObject canvas_Medicaments;
     //public static Transform ItemContent;
 }
