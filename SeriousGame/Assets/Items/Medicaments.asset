@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1096eaff8390314ea10c088b96875a3, type: 3}
   m_Name: Medicaments
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
+  id: 8
+  itemName: Medicaments
   value: 0
-  icon: {fileID: 0}
-  itemType: 0
+  icon: {fileID: 21300000, guid: ce363de2766f82e4298d96eb2f08ff94, type: 3}
+  itemType: 7

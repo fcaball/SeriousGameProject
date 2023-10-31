@@ -14,6 +14,7 @@ TagManager:
   - Canvas_Notice
   - Canvas_Ordonnance
   - Canvas_Pilulier
+  - Canvas_Medicaments
   layers:
   - Default
   - TransparentFX

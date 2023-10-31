@@ -41,6 +41,8 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Wallet:
                 active_Wallet = !active_Wallet;
                 GameVariables.canvas_Wallet.gameObject.SetActive(active_Wallet);
+                break;
+
             case Item.ItemType.Notice:
                 active_Notice = !active_Notice;
                 GameVariables.canvas_Notice.gameObject.SetActive(active_Notice);

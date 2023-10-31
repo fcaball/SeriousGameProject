@@ -21,8 +21,6 @@ public class InventoryManager : MonoBehaviour
     public GameObject player;
     public GameObject camera;
 
-    public GridLayoutGroup grid;
-
     private void Awake()
     {
         Instance = this;
@@ -33,13 +31,11 @@ public class InventoryManager : MonoBehaviour
         inventory.gameObject.SetActive(false);
         playerMovement_script = player.GetComponent<PlayerMovement>();
         camera_script = camera.GetComponent<MouseLook>();
-        GameVariables.CarlaEnigmaSolved = false;
     }
 
     public void Add(Item item)
     {
         Items.Add(item);
-        SetInventoryItems();
     }
 
     public void Remove(Item item)
@@ -47,12 +43,8 @@ public class InventoryManager : MonoBehaviour
         Items.Remove(item);
     }
 
-    public void ClearDuplicate()
+    public void CloseInventory()
     {
-        // foreach (Transform item in ItemContent)
-        // {
-        //     Destroy(item.gameObject);
-        // }
         inventory.gameObject.SetActive(false);
         playerMovement_script.enabled = true;
         camera_script.enabled = true;
@@ -61,26 +53,12 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-        // foreach (Transform item in ItemContent)
-        // {
-        //     Debug.Log("item enlevé");
-        //     Destroy(item.gameObject);
-        // }
-
-
-        // foreach (var item in Items)
-        // {
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
-            
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-
-            itemName.text = Items[Items.Count-1].itemName;
-            // Debug.Log(itemName.text);
-            itemIcon.sprite = Items[Items.Count-1].icon;
-        // }
-
-        //SetInventoryItems();
+        GameObject obj = Instantiate(InventoryItem, ItemContent);
+        var itemName = obj.transform.Find("ItemName").GetComponent<TMP_Text>();
+        var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+        itemName.text = Items[Items.Count - 1].itemName;
+        itemIcon.sprite = Items[Items.Count - 1].icon;
+        SetInventoryItems();
     }
 
     public void SetInventoryItems()
@@ -88,23 +66,13 @@ public class InventoryManager : MonoBehaviour
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
         Debug.Log("InventoryItems : " + InventoryItems.Length);
         Debug.Log("Items : " + Items.Count);
-        // foreach (Transform item in ItemContent)
-        // {
-        //     Destroy(item.gameObject);
-        // }
-        // for (int i = 0; i < Items.Count; i++)
-        // {
-            InventoryItems[Items.Count-1].AddItem(Items[Items.Count-1]);
-        // }
-
+        InventoryItems[Items.Count - 1].AddItem(Items[Items.Count - 1]);
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.I))
         {
-            //ClearDuplicate();
-            //ListItems();
             inventory.gameObject.SetActive(true);
             playerMovement_script.enabled = false;
             camera_script.enabled = false;
