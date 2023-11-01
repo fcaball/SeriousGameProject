@@ -51,7 +51,7 @@ public class PickUpItem : MonoBehaviour
 
         if (item.value == 1 && item.itemType == Item.ItemType.Empreintes)
         {
-            GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_tasse.activeSelf);
+            GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_cafetiere.activeSelf);
         }
         else if (item.value == 2 && item.itemType == Item.ItemType.Empreintes)
         {
@@ -59,7 +59,7 @@ public class PickUpItem : MonoBehaviour
         }
         else if (item.value == 3 && item.itemType == Item.ItemType.Empreintes)
         {
-            GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_tasse.activeSelf);
+            GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_dessin.activeSelf);
         }
 
         bool isAdded = InventoryManager.Instance.Add(item);

@@ -24,7 +24,9 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_empreinte;
     public static GameObject canvas_cafetiere;
     public static GameObject canvas_tasse;
+    
 
+    public static bool gameOver;
 
 
 }
