@@ -9,8 +9,8 @@ public class BenoitEnigmeAnswer : MonoBehaviour
 {
     public GameObject player;
     public TMP_InputField inputField;
-    public Image canvaEnigme;
-    public Image canvaVocal;
+   /* public Image canvaEnigme;*/
+    public Canvas canvaVocal;
     MouseLook camera_script;
     public GameObject camera;
     PlayerMovement playerMovement_script;
@@ -18,24 +18,17 @@ public class BenoitEnigmeAnswer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvaEnigme.gameObject.SetActive(true);
+        /*canvaEnigme.gameObject.SetActive(true);*/
         canvaVocal.gameObject.SetActive(false);
         playerMovement_script = player.GetComponent<PlayerMovement>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        playerMovement_script.enabled = false;
-        camera_script.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
+        camera_script = camera.GetComponent<MouseLook>();
     }
 
     public void ClickButton(){
         if(inputField.text == "7940"){
             Debug.Log("Succeed");
             canvaVocal.gameObject.SetActive(true);
-            canvaEnigme.gameObject.SetActive(false);
+            GameVariables.canvas_BenoitPhone.SetActive(false);
 
         }
     }

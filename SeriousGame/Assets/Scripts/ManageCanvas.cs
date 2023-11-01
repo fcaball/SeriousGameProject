@@ -6,7 +6,7 @@ public class ManageCanvas : MonoBehaviour
 {
     private void Awake()
     {
-        //GameVariables.canvas_BenoitPhone = GameObject.FindGameObjectWithTag("ItemCanvas");
+        GameVariables.canvas_BenoitPhone = GameObject.FindGameObjectWithTag("Canvas_BenoitPhone");
         GameVariables.canvas_CarlaPhone = GameObject.FindGameObjectWithTag("Canvas_CarlaPhone");
         GameVariables.canvas_PapierPC = GameObject.FindGameObjectWithTag("Canvas_papier");
         GameVariables.canvas_Wallet = GameObject.FindGameObjectWithTag("Canvas_Wallet");
@@ -27,5 +27,6 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_Pilulier.SetActive(false);
         GameVariables.canvas_Medicaments.SetActive(false);
         GameVariables.canvas_Photo.SetActive(false);
+        GameVariables.canvas_BenoitPhone.SetActive(false);
     }
 }

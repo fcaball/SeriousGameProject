@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 2
   itemName: Benoit's phone
   value: 0
-  icon: {fileID: 21300000, guid: 02a1f003e30d275438437cef6afe0efc, type: 3}
+  icon: {fileID: 21300000, guid: e869b264d97c7c60c9a5bd116aa871ec, type: 3}
   itemType: 2
