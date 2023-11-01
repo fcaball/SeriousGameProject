@@ -71,21 +71,24 @@ public class InventoryItemController : MonoBehaviour
                 GameVariables.canvas_BenoitPhone.SetActive(!GameVariables.canvas_BenoitPhone.activeSelf);
                 break;
 
-          /*  case Item.ItemType.Painting:
+            case Item.ItemType.Empreintes:
                 GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
-                GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_dessin.activeSelf);
                 break;
+            /*  case Item.ItemType.Painting:
+                  GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                  GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_dessin.activeSelf);
+                  break;
 
-            case Item.ItemType.Cafetiere:
-                GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
-                GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_cafetiere.activeSelf);
+              case Item.ItemType.Cafetiere:
+                  GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                  GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_cafetiere.activeSelf);
 
-                break;
+                  break;
 
-            case Item.ItemType.Tasse:
-                GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
-                GameVariables.canvas_tasse.SetActive(!GameVariables.canvas_tasse.activeSelf);
-                break;*/
+              case Item.ItemType.Tasse:
+                  GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                  GameVariables.canvas_tasse.SetActive(!GameVariables.canvas_tasse.activeSelf);
+                  break;*/
 
             default:
                 break;

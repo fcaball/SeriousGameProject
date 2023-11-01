@@ -23,9 +23,7 @@ public class Item : ScriptableObject
         Pilulier,
         Medicaments,
         Photo,
-        Painting,
-        Cafetiere,
-        Tasse
+        Empreintes
     }
  
 }

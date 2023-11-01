@@ -33,25 +33,27 @@ public class InventoryManager : MonoBehaviour
         camera_script = camera.GetComponent<MouseLook>();
     }
 
-    public void Add(Item item)
+    public bool Add(Item item)
     {
         bool ok = true;
-        Debug.Log(item.itemType);
-        if(item.itemType!= Item.ItemType.Cafetiere && item.itemType != Item.ItemType.Painting && item.itemType != Item.ItemType.Tasse)
+        if (item.itemType != Item.ItemType.Empreintes)
         {
+
             Items.Add(item);
         }
         else
         {
-            foreach(Item i in Items)
+            foreach (Item i in Items)
             {
-                if(i.itemType==Item.ItemType.Cafetiere || i.itemType == Item.ItemType.Painting || i.itemType == Item.ItemType.Tasse)
+                if (i.itemType == Item.ItemType.Empreintes)
                 {
                     ok = false;
                 }
             }
-            if (ok) { Items.Add(item); }
-        }           
+            Debug.Log(ok);
+            if (ok) {Items.Add(item); }
+        }
+        return ok;
     }
 
     public void Remove(Item item)

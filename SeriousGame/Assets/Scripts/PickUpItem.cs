@@ -30,18 +30,18 @@ public class PickUpItem : MonoBehaviour
     {
         float distance = Vector3.Distance(cam.transform.position, gameObject.transform.position);
 
-        if(distance < 2.5f)
+        if (distance < 2.5f)
         {
             near = gameObject;
             canvas_nearest.SetActive(true);
         }
-        else if(gameObject == near)
+        else if (gameObject == near)
         {
             canvas_nearest.SetActive(false);
             near = null;
         }
 
-        
+
     }
 
 
@@ -49,13 +49,30 @@ public class PickUpItem : MonoBehaviour
     {
         canvas_nearest.SetActive(false);
 
-        InventoryManager.Instance.Add(item);
+        if (item.value == 1 && item.itemType == Item.ItemType.Empreintes)
+        {
+            GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_tasse.activeSelf);
+        }
+        else if (item.value == 2 && item.itemType == Item.ItemType.Empreintes)
+        {
+            GameVariables.canvas_tasse.SetActive(!GameVariables.canvas_tasse.activeSelf);
+        }
+        else if (item.value == 3 && item.itemType == Item.ItemType.Empreintes)
+        {
+            GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_tasse.activeSelf);
+        }
 
-        InventoryManager.Instance.ListItems();
+        bool isAdded = InventoryManager.Instance.Add(item);
+
+
+        if (isAdded)
+        {
+            InventoryManager.Instance.ListItems();
+        }
 
         Destroy(gameObject);
-       
+
     }
 
-    
+
 }
