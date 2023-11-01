@@ -17,4 +17,14 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_Medicaments;
 
     public static GameObject canvas_Photo;
+    public static GameObject canvas_vocal;
+    public static GameObject canvas_charade;
+
+    public static GameObject canvas_dessin;
+    public static GameObject canvas_empreinte;
+    public static GameObject canvas_cafetiere;
+    public static GameObject canvas_tasse;
+
+
+
 }

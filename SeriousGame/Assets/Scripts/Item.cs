@@ -22,7 +22,10 @@ public class Item : ScriptableObject
         Ordonnance,
         Pilulier,
         Medicaments,
-        Photo
+        Photo,
+        Painting,
+        Cafetiere,
+        Tasse
     }
  
 }

@@ -35,7 +35,23 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
-        Items.Add(item);
+        bool ok = true;
+        Debug.Log(item.itemType);
+        if(item.itemType!= Item.ItemType.Cafetiere && item.itemType != Item.ItemType.Painting && item.itemType != Item.ItemType.Tasse)
+        {
+            Items.Add(item);
+        }
+        else
+        {
+            foreach(Item i in Items)
+            {
+                if(i.itemType==Item.ItemType.Cafetiere || i.itemType == Item.ItemType.Painting || i.itemType == Item.ItemType.Tasse)
+                {
+                    ok = false;
+                }
+            }
+            if (ok) { Items.Add(item); }
+        }           
     }
 
     public void Remove(Item item)
@@ -49,6 +65,7 @@ public class InventoryManager : MonoBehaviour
         playerMovement_script.enabled = true;
         camera_script.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     public void ListItems()

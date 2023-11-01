@@ -17,6 +17,13 @@ TagManager:
   - Canvas_Medicaments
   - puzzle
   - Canvas_Puzzle
+  - Canvas_vocal
+  - Canvas_charade
+  - Canvas_dessin
+  - nearest
+  - Canvas_empreintes
+  - Canvas_cafetiere
+  - Canvas_tasse
   layers:
   - Default
   - TransparentFX

@@ -35,7 +35,7 @@ public class InventoryItemController : MonoBehaviour
 
             case Item.ItemType.CarlaPhone:
                 active_CarlaPhone = !active_CarlaPhone;
-                GameVariables.canvas_CarlaPhone.gameObject.SetActive(active_CarlaPhone);
+                GameVariables.canvas_charade.gameObject.SetActive(active_CarlaPhone);
                 break;
 
             case Item.ItemType.Wallet:
@@ -66,6 +66,26 @@ public class InventoryItemController : MonoBehaviour
             case Item.ItemType.Photo:
                 GameVariables.canvas_Photo.SetActive(!GameVariables.canvas_Photo.activeSelf);
                 break;
+
+            case Item.ItemType.BenoitPhone:
+                GameVariables.canvas_BenoitPhone.SetActive(!GameVariables.canvas_BenoitPhone.activeSelf);
+                break;
+
+          /*  case Item.ItemType.Painting:
+                GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_dessin.activeSelf);
+                break;
+
+            case Item.ItemType.Cafetiere:
+                GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                GameVariables.canvas_cafetiere.SetActive(!GameVariables.canvas_cafetiere.activeSelf);
+
+                break;
+
+            case Item.ItemType.Tasse:
+                GameVariables.canvas_empreinte.SetActive(!GameVariables.canvas_empreinte.activeSelf);
+                GameVariables.canvas_tasse.SetActive(!GameVariables.canvas_tasse.activeSelf);
+                break;*/
 
             default:
                 break;
