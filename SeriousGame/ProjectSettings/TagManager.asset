@@ -24,6 +24,7 @@ TagManager:
   - Canvas_empreintes
   - Canvas_cafetiere
   - Canvas_tasse
+  - background
   layers:
   - Default
   - TransparentFX

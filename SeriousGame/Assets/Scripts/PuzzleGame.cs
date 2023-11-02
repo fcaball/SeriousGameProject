@@ -2,6 +2,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PuzzleGame : MonoBehaviour
 {
@@ -10,12 +11,21 @@ public class PuzzleGame : MonoBehaviour
     public Image bg;
     public Image bd;
 
-    public Camera cam;
+    //public Camera cam;
     private RaycastHit hit;
 
     GraphicRaycaster m_Raycaster;
     PointerEventData m_PointerEventData;
     EventSystem m_EventSystem;
+
+    GameObject first_hit = null;
+    GameObject second_hit = null;
+
+    private bool found;
+    private Vector3 hg_pos;
+    private Vector3 hd_pos;
+    private Vector3 bg_pos;
+    private Vector3 bd_pos;
 
     void Start()
     {
@@ -23,33 +33,83 @@ public class PuzzleGame : MonoBehaviour
         m_Raycaster = GetComponent<GraphicRaycaster>();
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
+
+        found = false;
+
+        hg_pos = new Vector3(-174.1f, 75f, 0);
+        hd_pos = new Vector3(-20.80002f, 75f, 0);
+        bg_pos = new Vector3(-174.1f, -77.9f, 0);
+        bd_pos = new Vector3(-20.80001f, -77.900001f, 0);
     }
 
     void Update()
     {
-        //Check if the left Mouse button is clicked
-        if (Input.GetKey(KeyCode.Mouse0))
+
+        if(first_hit != null && found == false)
         {
-            //Set up the new Pointer Event
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                m_PointerEventData = new PointerEventData(m_EventSystem);
+                m_PointerEventData.position = Input.mousePosition;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+
+                m_Raycaster.Raycast(m_PointerEventData, results);
+                
+                second_hit = results[0].gameObject;
+
+                Swap(first_hit, second_hit);
+
+                first_hit = null;
+                second_hit = null;
+
+            }
+
+        }
+
+        Check();
+
+
+        if (Input.GetKey(KeyCode.Mouse0) && found == false)
+        {
             m_PointerEventData = new PointerEventData(m_EventSystem);
-            //Set the Pointer Event Position to that of the mouse position
             m_PointerEventData.position = Input.mousePosition;
 
-            //Create a list of Raycast Results
             List<RaycastResult> results = new List<RaycastResult>();
 
-            //Raycast using the Graphics Raycaster and mouse click position
             m_Raycaster.Raycast(m_PointerEventData, results);
 
-            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
-            foreach (RaycastResult result in results)
-            {
-                if (result.gameObject.name == "hg")
-                {
+            first_hit = results[0].gameObject;
+        }
 
-                }
-            }
+    }
+
+
+    private void Swap(GameObject obj1, GameObject obj2)
+    {
+        Vector2 tmp;
+
+        tmp = obj1.transform.position;
+        obj1.transform.position = obj2.transform.position;
+        obj2.transform.position = tmp;
+    }
+
+    private void Check()
+    {
+        if(hg.transform.position == hg_pos && hd.transform.position == hd_pos
+            && bg.transform.position == bg_pos && bd.transform.position == bd_pos)
+        {
+            found = true;
+            StartCoroutine(DisableImages());
         }
     }
 
+    IEnumerator DisableImages()
+    {
+        yield return new WaitForSeconds(2f);
+        hg.gameObject.SetActive(false);
+        hd.gameObject.SetActive(false);
+        bg.gameObject.SetActive(false);
+        bd.gameObject.SetActive(false);
+    }
 }
