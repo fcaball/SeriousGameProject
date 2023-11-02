@@ -31,6 +31,8 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_tasse = GameObject.FindGameObjectWithTag("Canvas_tasse");
         GameVariables.canvas_cafetiere = GameObject.FindGameObjectWithTag("Canvas_cafetiere");
 
+        GameVariables.canvas_police = GameObject.FindGameObjectWithTag("Canvas_police");
+
         GameVariables.canvas_PapierPC.SetActive(false);
         GameVariables.canvas_CarlaPhone.SetActive(false);
         GameVariables.canvas_Notice.SetActive(false);
@@ -45,6 +47,7 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_empreinte.SetActive(false);
         GameVariables.canvas_tasse.SetActive(false);
         GameVariables.canvas_cafetiere.SetActive(false);
+        GameVariables.canvas_police.SetActive(false);
 
     }
 
@@ -60,6 +63,7 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_BenoitPhone.SetActive(false);
         GameVariables.canvas_vocal.SetActive(false);
         GameVariables.canvas_charade.SetActive(false);
+        GameVariables.canvas_police.SetActive(false);
         GameVariables.canvas_empreinte.SetActive(false);
     }
 }

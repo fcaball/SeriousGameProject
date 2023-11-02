@@ -25,6 +25,7 @@ TagManager:
   - Canvas_cafetiere
   - Canvas_tasse
   - background
+  - Canvas_police
   layers:
   - Default
   - TransparentFX

@@ -29,17 +29,14 @@ public class PuzzleGame : MonoBehaviour
 
     void Start()
     {
-        //Fetch the Raycaster from the GameObject (the Canvas)
         m_Raycaster = GetComponent<GraphicRaycaster>();
-        //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
 
         found = false;
-
-        hg_pos = new Vector3(-174.1f, 75f, 0);
-        hd_pos = new Vector3(-20.80002f, 75f, 0);
-        bg_pos = new Vector3(-174.1f, -77.9f, 0);
-        bd_pos = new Vector3(-20.80001f, -77.900001f, 0);
+        hd_pos = hg.transform.position;
+        bd_pos = bd.transform.position;
+        hg_pos = bg.transform.position;
+        bg_pos = hd.transform.position;
     }
 
     void Update()
@@ -96,8 +93,13 @@ public class PuzzleGame : MonoBehaviour
 
     private void Check()
     {
-        if(hg.transform.position == hg_pos && hd.transform.position == hd_pos
-            && bg.transform.position == bg_pos && bd.transform.position == bd_pos)
+
+        bool cond1 = hg.transform.position.x >= hg_pos.x - 1 && hg.transform.position.x <= hg_pos.x + 1 && hg.transform.position.y >= hg_pos.y - 1 && hg.transform.position.y <= hg_pos.y + 1;
+        bool cond2 = hd.transform.position.x >= hd_pos.x - 1 && hd.transform.position.x <= hd_pos.x + 1 && hd.transform.position.y >= hd_pos.y - 1 && hd.transform.position.y <= hd_pos.y + 1;
+        bool cond3 = bg.transform.position.x >= bg_pos.x - 1 && bg.transform.position.x <= bg_pos.x + 1 && bg.transform.position.y >= bg_pos.y - 1 && bg.transform.position.y <= bg_pos.y + 1;
+        bool cond4 = bd.transform.position.x >= bd_pos.x - 1 && bd.transform.position.x <= bd_pos.x + 1 && bd.transform.position.y >= bd_pos.y - 1 && bd.transform.position.y <= bd_pos.y + 1;
+
+        if (cond1 && cond2 && cond3 && cond4)
         {
             found = true;
             StartCoroutine(DisableImages());

@@ -24,9 +24,14 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_empreinte;
     public static GameObject canvas_cafetiere;
     public static GameObject canvas_tasse;
+
+    public static GameObject canvas_police;
     
 
     public static bool gameOver;
 
+    public static AudioSource pickUp_sound;
+    public static AudioSource succeed;
+    public static AudioSource fail;
 
 }

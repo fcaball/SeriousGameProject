@@ -21,7 +21,8 @@ public class PickUpItem : MonoBehaviour
     private void Start()
     {
         canvas_nearest.SetActive(false);
-        //near = false;
+
+        GameVariables.pickUp_sound = GameObject.Find("pickUpSound").GetComponent<AudioSource>();
     }
 
 
@@ -63,7 +64,7 @@ public class PickUpItem : MonoBehaviour
         }
 
         bool isAdded = InventoryManager.Instance.Add(item);
-
+        GameVariables.pickUp_sound.Play();
 
         if (isAdded)
         {

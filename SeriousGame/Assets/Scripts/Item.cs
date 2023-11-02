@@ -23,7 +23,8 @@ public class Item : ScriptableObject
         Pilulier,
         Medicaments,
         Photo,
-        Empreintes
+        Empreintes,
+        Rapport
     }
  
 }

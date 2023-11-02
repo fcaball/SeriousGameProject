@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Typewriter : MonoBehaviour
 {
     string originalText;
     TMP_Text uiText;
     public float delay = 0.2f;
-    AudioSource typewriter;
+
+    bool finish = false;
 
     private void Awake()
     {
-        /*typewriter = GetComponent<AudioSource>();*/
         uiText = GetComponent<TMP_Text>();
         originalText = uiText.text;
         uiText.text = null;
@@ -22,10 +24,18 @@ public class Typewriter : MonoBehaviour
 
     IEnumerator LetterbyLetter()
     {
-        for (int i = 0; i < originalText.Length; i++)
+        for (int i = 0; i <= originalText.Length; i++)
         {
             uiText.text = originalText.Substring(0, i);
             yield return new WaitForSeconds(delay);
         }
+
+        finish = true;
+    }
+
+    public void Skip()
+    {
+        if (finish)
+            SceneManager.LoadScene(2);
     }
 }
