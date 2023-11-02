@@ -20,7 +20,7 @@ public class Chronometre : MonoBehaviour
     {
         canva_timer = timer.GetComponentInParent<Canvas>(); 
         canva_timer.gameObject.SetActive(true); 
-        time = 10f;
+        time = 3600f;
     }
 
     void Update()
