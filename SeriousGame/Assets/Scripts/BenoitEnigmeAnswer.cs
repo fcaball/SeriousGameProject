@@ -26,11 +26,14 @@ public class BenoitEnigmeAnswer : MonoBehaviour
     }
 
     public void ClickButton(){
-        Debug.Log("ici");
-        if(inputField.text == "7940"){
-            Debug.Log("Succeed");
+        if(inputField.text == "79410"){
+            GameVariables.succeed.Play();
             GameVariables.canvas_vocal.SetActive(true);
             GameVariables.canvas_BenoitPhone.SetActive(false);
+        }
+        else
+        {
+            GameVariables.fail.Play();
         }
     }
 

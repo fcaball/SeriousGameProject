@@ -4,16 +4,18 @@ using UnityEngine.UI;
 
 public class CanvasWeb_script : MonoBehaviour
 {
-    public Canvas canvas;
-    [SerializeField] Button web;
+    public static GameObject canvas_desktop;
+    [SerializeField] Button web_button;
     private bool switch_sceen;
     [SerializeField] Image desktop;
     [SerializeField] Image webPage;
 
+
     void Start()
     {
-        canvas.gameObject.SetActive(false);
-        web.onClick.AddListener(ClickOnWeb);
+        canvas_desktop = GameObject.FindGameObjectWithTag("Canvas_web");
+        canvas_desktop.gameObject.SetActive(false);
+        web_button.onClick.AddListener(ClickOnWeb);
         switch_sceen = true;
     }
 
@@ -26,7 +28,7 @@ public class CanvasWeb_script : MonoBehaviour
     {
         if (GameVariables.mdp_find)
         {
-            canvas.gameObject.SetActive(true);
+            canvas_desktop.gameObject.SetActive(true);
             GameVariables.mdp_find = false;
         }
 
@@ -37,7 +39,7 @@ public class CanvasWeb_script : MonoBehaviour
         }
         else
         {
-            /*desktop.gameObject.SetActive(false);*/
+            //desktop.gameObject.SetActive(false);
             webPage.gameObject.SetActive(true);
         }
     }

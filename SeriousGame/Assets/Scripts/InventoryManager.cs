@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
                     ok = false;
                 }
             }
-            Debug.Log(ok);
+            //Debug.Log(ok);
             if (ok) {Items.Add(item); }
         }
         return ok;
@@ -83,8 +83,8 @@ public class InventoryManager : MonoBehaviour
     public void SetInventoryItems()
     {
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-        Debug.Log("InventoryItems : " + InventoryItems.Length);
-        Debug.Log("Items : " + Items.Count);
+        //Debug.Log("InventoryItems : " + InventoryItems.Length);
+        //Debug.Log("Items : " + Items.Count);
         InventoryItems[Items.Count - 1].AddItem(Items[Items.Count - 1]);
     }
 

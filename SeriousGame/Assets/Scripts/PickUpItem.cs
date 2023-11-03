@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PickUpItem : MonoBehaviour
 {
@@ -10,19 +11,26 @@ public class PickUpItem : MonoBehaviour
 
     public static GameObject near;
 
+    GameObject add_text;
+
     public Item item;
+
+    private IEnumerator coroutine;
+    private static bool isAdded;
 
     private void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         canvas_nearest = GameObject.FindGameObjectWithTag("nearest");
+        add_text = GameObject.FindGameObjectWithTag("add_text");
+
     }
 
     private void Start()
     {
         canvas_nearest.SetActive(false);
-
-        GameVariables.pickUp_sound = GameObject.Find("pickUpSound").GetComponent<AudioSource>();
+        add_text.SetActive(false);
+        isAdded = false;
     }
 
 
@@ -42,7 +50,12 @@ public class PickUpItem : MonoBehaviour
             near = null;
         }
 
-
+        if(isAdded)
+        {
+            Debug.Log("despacito");
+            StartCoroutine(WaitAndDisable(2));
+            isAdded = false;
+        }
     }
 
 
@@ -63,8 +76,11 @@ public class PickUpItem : MonoBehaviour
             GameVariables.canvas_dessin.SetActive(!GameVariables.canvas_dessin.activeSelf);
         }
 
-        bool isAdded = InventoryManager.Instance.Add(item);
+        isAdded = InventoryManager.Instance.Add(item);
         GameVariables.pickUp_sound.Play();
+        add_text.gameObject.SetActive(isAdded);
+
+        Debug.Log(isAdded);
 
         if (isAdded)
         {
@@ -73,6 +89,14 @@ public class PickUpItem : MonoBehaviour
 
         Destroy(gameObject);
 
+
+
+    }
+
+    IEnumerator WaitAndDisable(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        add_text.SetActive(false);
     }
 
 

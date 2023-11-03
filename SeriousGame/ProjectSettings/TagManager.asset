@@ -26,6 +26,10 @@ TagManager:
   - Canvas_tasse
   - background
   - Canvas_police
+  - Canvas_web
+  - add_text
+  - Canvas_indice
+  - indice_ordonnance
   layers:
   - Default
   - TransparentFX

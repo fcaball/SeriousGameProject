@@ -49,8 +49,23 @@ public class InventoryItemController : MonoBehaviour
                 break;
 
             case Item.ItemType.Ordonnance:
-                active_Ordonnance = !active_Ordonnance;
-                GameVariables.canvas_Ordonnance.gameObject.SetActive(active_Ordonnance);
+                if (GameVariables.canvas_Ordonnance.gameObject.activeSelf)
+                {
+                    GameVariables.canvas_Ordonnance.gameObject.SetActive(false);
+                    if (GameVariables.nbTentativesOrdonnance >= 3)
+                    {
+                        GameVariables.canvas_Indice.SetActive(false);
+                    }
+                }
+                else if (!GameVariables.canvas_Ordonnance.gameObject.activeSelf)
+                {
+                    GameVariables.canvas_Ordonnance.gameObject.SetActive(true);
+                    if (GameVariables.nbTentativesOrdonnance >= 3)
+                    {
+                        GameVariables.canvas_Indice.SetActive(true);
+                    }
+                }
+
                 break;
 
             case Item.ItemType.Pilulier:

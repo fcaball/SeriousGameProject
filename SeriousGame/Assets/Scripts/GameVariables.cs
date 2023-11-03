@@ -26,7 +26,10 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_tasse;
 
     public static GameObject canvas_police;
-    
+
+    public static GameObject canvas_Indice;
+    public static GameObject canvas_Indice_Ordonnance;
+    public static int nbTentativesOrdonnance;
 
     public static bool gameOver;
 

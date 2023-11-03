@@ -102,6 +102,7 @@ public class PuzzleGame : MonoBehaviour
         if (cond1 && cond2 && cond3 && cond4)
         {
             found = true;
+            GameVariables.succeed.Play();
             StartCoroutine(DisableImages());
         }
     }

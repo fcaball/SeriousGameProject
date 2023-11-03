@@ -38,19 +38,9 @@ public class EndGame : MonoBehaviour
 
     void Start()
     {
-        //images = GameObject.FindGameObjectsWithTag("background");
         mauvaiseSaisie.gameObject.SetActive(false);
 
         canvas_fin.gameObject.SetActive(false);
-        /*bg_anais.gameObject.SetActive(false);
-        bg_benoit.gameObject.SetActive(false);
-        bg_antony.gameObject.SetActive(false);
-        bg_margot.gameObject.SetActive(false);
-        bg_mamie.gameObject.SetActive(false);
-        bg_carla.gameObject.SetActive(false);
-        bg_poison.gameObject.SetActive(false);
-        bg_repasser.gameObject.SetActive(false);
-        bg_sac.gameObject.SetActive(false);*/
 
         images.Add(bg_sac);
         images.Add(bg_anais);
@@ -76,19 +66,12 @@ public class EndGame : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.P) && !GameVariables.gameOver)
+        if(Input.GetKey(KeyCode.Tab) && !GameVariables.gameOver)
         {
-            open = !open;
-            if(open)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            canvas_fin.gameObject.SetActive(open);
-            cursor.gameObject.SetActive(!open);
+            Cursor.lockState = CursorLockMode.None;
+            
+            canvas_fin.gameObject.SetActive(true);
+            cursor.gameObject.SetActive(false);
         }
 
         if(GameVariables.gameOver)

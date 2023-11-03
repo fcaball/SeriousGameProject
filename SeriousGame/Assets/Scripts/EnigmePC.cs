@@ -7,28 +7,26 @@ using TMPro;
 
 public class EnigmePC : MonoBehaviour
 {
-    /*#region Attributes*/
     public GameObject player;
     public Canvas canvas;
     public Canvas signIn;
-    //public Canvas canva_drawer;
     private bool onPC;
     PlayerMovement playerMovement_script;
+    MouseLook mouseLook;
+    public Camera cam;
     public Button enter;
     public TMP_InputField saisie;
     private string reponse = "9067";
-    /*#endregion*/
 
-    
-    
+    //public static bool stepOneIsPassed = false;
 
     void Start()
     {
         canvas.gameObject.SetActive(false);
         signIn.gameObject.SetActive(false);
-        //canva_drawer.gameObject.SetActive(false);
         onPC = false;
         playerMovement_script = player.GetComponent<PlayerMovement>();
+        mouseLook = cam.GetComponent<MouseLook>();
         enter.onClick.AddListener(Click);
     }
 
@@ -53,6 +51,7 @@ public class EnigmePC : MonoBehaviour
             signIn.gameObject.SetActive(true);
             canvas.gameObject.SetActive(false);
             playerMovement_script.enabled = false;
+            mouseLook.enabled = false;
         }
 
         if(Input.GetKey(KeyCode.Escape) && onPC)
@@ -61,7 +60,9 @@ public class EnigmePC : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             signIn.gameObject.SetActive(false);
             canvas.gameObject.SetActive(true);
+            CanvasWeb_script.canvas_desktop.SetActive(false);
             playerMovement_script.enabled = true;
+            mouseLook.enabled = true;
         }
     }
 
@@ -81,11 +82,13 @@ public class EnigmePC : MonoBehaviour
             GetFocus();
             signIn.gameObject.SetActive(false);
             GameVariables.mdp_find = true;
+            GameVariables.succeed.Play();
         }
         else
         {
             saisie.text = null;
             GetFocus();
+            GameVariables.fail.Play();
         }
 
     }
