@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -33,8 +34,15 @@ public class EndGame : MonoBehaviour
 
     private List<string> prenoms = new();
 
+    public AudioSource ringtone;
+    public AudioSource vocal;
+    public AudioSource ambiante;
+    public Canvas phone;
+
     bool open;
     bool selected;
+
+    public Button quit;
 
     void Start()
     {
@@ -59,9 +67,11 @@ public class EndGame : MonoBehaviour
         prenoms.Add("bg_mamie");
         prenoms.Add("bg_margot");
 
+        phone.gameObject.SetActive(false);
 
         open = false;
         selected = false;
+        quit.onClick.AddListener(Quit);
     }
 
     void Update()
@@ -80,6 +90,13 @@ public class EndGame : MonoBehaviour
             canvas_fin.gameObject.SetActive(true);
             cursor.gameObject.SetActive(false);
         }
+    }
+
+    public void Quit()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        canvas_fin.gameObject.SetActive(false);
+        cursor.gameObject.SetActive(true);
     }
 
 
@@ -118,6 +135,7 @@ public class EndGame : MonoBehaviour
 
         if(selected_img.Count != 2)
         {
+            GameVariables.fail.Play();
             mauvaiseSaisie.gameObject.SetActive(true);
             StartCoroutine(ErrorMessage(selected_img));
         }
@@ -126,8 +144,7 @@ public class EndGame : MonoBehaviour
 
         if (Compare(prenoms, selected_img[0].gameObject.name) && Compare(prenoms, selected_img[1].gameObject.name))
         {
-            Debug.Log("deux personnes");
-
+            GameVariables.fail.Play();
             two_persons_selected = true;
             mauvaiseSaisie.gameObject.SetActive(true);
             StartCoroutine(ErrorMessage(selected_img));
@@ -139,13 +156,29 @@ public class EndGame : MonoBehaviour
         {
             selected_img[0].sprite = background_valid;
             selected_img[1].sprite = background_valid;
+            GameVariables.succeed.Play();
+            ambiante.Stop();
+            StartCoroutine(Fin());
+
         }
         else if(!answer && selected_img.Count == 2 && !two_persons_selected)
         {
             selected_img[0].sprite = background_notvalid;
             selected_img[1].sprite = background_notvalid;
+            GameVariables.fail.Play();
             StartCoroutine(SaisiePasValid(selected_img[0], selected_img[1]));
         }
+    }
+
+    IEnumerator Fin()
+    {
+        yield return new WaitForSeconds(1f);
+        ringtone.Play();
+        yield return new WaitForSeconds(2f);
+        phone.gameObject.SetActive(true);
+        vocal.Play();
+        yield return new WaitForSeconds(11f);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator SaisiePasValid(Image img1, Image img2)

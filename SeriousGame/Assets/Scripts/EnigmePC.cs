@@ -10,13 +10,22 @@ public class EnigmePC : MonoBehaviour
     public GameObject player;
     public Canvas canvas;
     public Canvas signIn;
-    private bool onPC;
+     bool onPC;
     PlayerMovement playerMovement_script;
     MouseLook mouseLook;
     public Camera cam;
     public Button enter;
     public TMP_InputField saisie;
     private string reponse = "9067";
+    public GameObject indice;
+
+    private bool indiced;
+    public AudioSource click;
+
+    private void Awake()
+    {
+        indice = GameObject.FindGameObjectWithTag("indice_PC");
+    }
 
     //public static bool stepOneIsPassed = false;
 
@@ -28,6 +37,9 @@ public class EnigmePC : MonoBehaviour
         playerMovement_script = player.GetComponent<PlayerMovement>();
         mouseLook = cam.GetComponent<MouseLook>();
         enter.onClick.AddListener(Click);
+        GameVariables.nbTentativesPC = 0;
+        indice.SetActive(false);
+        indiced = false;
     }
 
     void Update()
@@ -50,25 +62,32 @@ public class EnigmePC : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             signIn.gameObject.SetActive(true);
             canvas.gameObject.SetActive(false);
+            if (indiced)
+                GameVariables.canvas_Indice2.SetActive(true);
             playerMovement_script.enabled = false;
             mouseLook.enabled = false;
         }
 
-        if(Input.GetKey(KeyCode.Escape) && onPC)
-        {
-            onPC = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            signIn.gameObject.SetActive(false);
-            canvas.gameObject.SetActive(true);
-            CanvasWeb_script.canvas_desktop.SetActive(false);
-            playerMovement_script.enabled = true;
-            mouseLook.enabled = true;
-        }
+        
     }
 
     void Click()
     {
+        click.Play();
         ReponseSaisie();
+    }
+
+    public void ClosePC()
+    {
+        click.Play();
+        onPC = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        signIn.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(true);
+        CanvasWeb_script.canvas_desktop.SetActive(false);
+        playerMovement_script.enabled = true;
+        mouseLook.enabled = true;
+        GameVariables.canvas_Indice2.SetActive(false);
     }
 
     public void ReponseSaisie()
@@ -84,13 +103,30 @@ public class EnigmePC : MonoBehaviour
             GameVariables.mdp_find = true;
             GameVariables.succeed.Play();
         }
-        else
+        else if(UserReponse != "")
         {
+            GameVariables.nbTentativesPC += 1;
             saisie.text = null;
             GetFocus();
-            GameVariables.fail.Play();
+            if (GameVariables.nbTentativesPC <= 2)
+                GameVariables.fail.Play();
+        }
+        if (GameVariables.nbTentativesPC >= 3 && !GameVariables.canvas_Indice2.activeSelf)
+        {
+            GameVariables.pop.Play();
+            GameVariables.canvas_Indice2.SetActive(true);
         }
 
+    }
+
+    public void GetIndice()
+    {
+        click.Play();
+        if (GameVariables.canvas_Indice2.activeSelf)
+        {
+            indice.SetActive(true);
+            indiced = true;
+        }
     }
 
 

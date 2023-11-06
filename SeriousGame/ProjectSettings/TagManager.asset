@@ -30,6 +30,10 @@ TagManager:
   - add_text
   - Canvas_indice
   - indice_ordonnance
+  - indice_CarlaPhone
+  - Canvas_indice1
+  - indice_PC
+  - Canvas_indice2
   layers:
   - Default
   - TransparentFX

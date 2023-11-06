@@ -28,13 +28,18 @@ public class GameVariables : MonoBehaviour
     public static GameObject canvas_police;
 
     public static GameObject canvas_Indice;
+    public static GameObject canvas_Indice1;
+    public static GameObject canvas_Indice2;
     public static GameObject canvas_Indice_Ordonnance;
     public static int nbTentativesOrdonnance;
+    public static int nbTentativesCarlaPhone;
+    public static int nbTentativesPC;
 
     public static bool gameOver;
 
     public static AudioSource pickUp_sound;
     public static AudioSource succeed;
     public static AudioSource fail;
+    public static AudioSource pop;
 
 }

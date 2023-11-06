@@ -34,8 +34,22 @@ public class InventoryItemController : MonoBehaviour
                 break;
 
             case Item.ItemType.CarlaPhone:
-                active_CarlaPhone = !active_CarlaPhone;
-                GameVariables.canvas_charade.gameObject.SetActive(active_CarlaPhone);
+                if (GameVariables.canvas_charade.gameObject.activeSelf)
+                {
+                    GameVariables.canvas_charade.gameObject.SetActive(false);
+                    if (GameVariables.nbTentativesCarlaPhone >= 3)
+                    {
+                        GameVariables.canvas_Indice1.SetActive(false);
+                    }
+                }
+                else if (!GameVariables.canvas_charade.gameObject.activeSelf)
+                {
+                    GameVariables.canvas_charade.gameObject.SetActive(true);
+                    if (GameVariables.nbTentativesCarlaPhone >= 3)
+                    {
+                        GameVariables.canvas_Indice1.SetActive(true);
+                    }
+                }
                 break;
 
             case Item.ItemType.Wallet:

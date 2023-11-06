@@ -9,5 +9,6 @@ public class ManageSounds : MonoBehaviour
         GameVariables.succeed = GameObject.Find("Succeed_enigma").GetComponent<AudioSource>();
         GameVariables.fail = GameObject.Find("Fail_enigma").GetComponent<AudioSource>();
         GameVariables.pickUp_sound = GameObject.Find("pickUpSound").GetComponent<AudioSource>();
+        GameVariables.pop = GameObject.Find("popSound").GetComponent<AudioSource>();
     }
 }

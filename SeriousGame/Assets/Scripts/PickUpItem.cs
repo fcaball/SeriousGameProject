@@ -18,12 +18,14 @@ public class PickUpItem : MonoBehaviour
     private IEnumerator coroutine;
     private static bool isAdded;
 
+    private bool taken;
+
     private void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         canvas_nearest = GameObject.FindGameObjectWithTag("nearest");
         add_text = GameObject.FindGameObjectWithTag("add_text");
-
+        taken = false;
     }
 
     private void Start()
@@ -39,7 +41,7 @@ public class PickUpItem : MonoBehaviour
     {
         float distance = Vector3.Distance(cam.transform.position, gameObject.transform.position);
 
-        if (distance < 2.5f)
+        if (distance < 2.5f && !taken)
         {
             near = gameObject;
             canvas_nearest.SetActive(true);
@@ -50,18 +52,19 @@ public class PickUpItem : MonoBehaviour
             near = null;
         }
 
-        if(isAdded)
-        {
-            Debug.Log("despacito");
-            StartCoroutine(WaitAndDisable(2));
-            isAdded = false;
-        }
+        //if(isAdded)
+        //{
+            //StartCoroutine(WaitAndDisable(2));
+            //isAdded = false;
+        //}
     }
 
 
-    private void OnMouseDown()
+    private IEnumerator OnMouseDown()
     {
         canvas_nearest.SetActive(false);
+        Debug.Log(canvas_nearest.activeSelf);
+        taken = true;
 
         if (item.value == 1 && item.itemType == Item.ItemType.Empreintes)
         {
@@ -78,7 +81,7 @@ public class PickUpItem : MonoBehaviour
 
         isAdded = InventoryManager.Instance.Add(item);
         GameVariables.pickUp_sound.Play();
-        add_text.gameObject.SetActive(isAdded);
+        add_text.SetActive(true);
 
         Debug.Log(isAdded);
 
@@ -87,17 +90,19 @@ public class PickUpItem : MonoBehaviour
             InventoryManager.Instance.ListItems();
         }
 
+        yield return new WaitForSeconds(1.0f);
+
+        add_text.SetActive(false);
+        
         Destroy(gameObject);
 
-
-
     }
 
-    IEnumerator WaitAndDisable(float waitTime)
+    /*IEnumerator WaitAndDisable(float waitTime)
     {
-        yield return new WaitForSeconds(waitTime);
-        add_text.SetActive(false);
-    }
+        Debug.Log("despacito");
+        
+    }*/
 
 
 }

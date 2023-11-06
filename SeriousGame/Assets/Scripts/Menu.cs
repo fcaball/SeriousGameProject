@@ -32,6 +32,7 @@ public class Menu : MonoBehaviour
     void ClickQuit()
     {
         soundButton.Play();
+        Application.Quit();
     }
 
     void ClickSettings()

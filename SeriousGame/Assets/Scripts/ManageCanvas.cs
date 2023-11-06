@@ -35,6 +35,10 @@ public class ManageCanvas : MonoBehaviour
 
         GameVariables.canvas_Indice = GameObject.FindGameObjectWithTag("Canvas_indice");
 
+        GameVariables.canvas_Indice1 = GameObject.FindGameObjectWithTag("Canvas_indice1");
+
+        GameVariables.canvas_Indice2 = GameObject.FindGameObjectWithTag("Canvas_indice2");
+
         //GameVariables.canvas_Indice_Ordonnance = GameObject.FindGameObjectWithTag("Canvas_Indice_Ordonnance");
 
         GameVariables.canvas_PapierPC.SetActive(false);
@@ -53,7 +57,8 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_cafetiere.SetActive(false);
         GameVariables.canvas_police.SetActive(false);
         GameVariables.canvas_Indice.SetActive(false);
-
+        GameVariables.canvas_Indice1.SetActive(false);
+        GameVariables.canvas_Indice2.SetActive(false);
     }
 
     public void CloseAllCanvas()
@@ -71,6 +76,9 @@ public class ManageCanvas : MonoBehaviour
         GameVariables.canvas_police.SetActive(false);
         GameVariables.canvas_empreinte.SetActive(false);
         GameVariables.canvas_Indice.SetActive(false);
+        GameVariables.canvas_Indice1.SetActive(false);
+        GameVariables.canvas_Indice2.SetActive(false);
+        GameVariables.canvas_Wallet.SetActive(false);
         //GameVariables.canvas_Indice_Ordonnance.SetActive(false);
     }
 }

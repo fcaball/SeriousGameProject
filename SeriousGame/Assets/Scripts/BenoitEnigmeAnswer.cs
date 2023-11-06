@@ -15,6 +15,7 @@ public class BenoitEnigmeAnswer : MonoBehaviour
     public GameObject camera;
     PlayerMovement playerMovement_script;
     public AudioSource vocal;
+    public AudioSource click;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class BenoitEnigmeAnswer : MonoBehaviour
     }
 
     public void ClickButton(){
+        click.Play();
         if(inputField.text == "79410"){
             GameVariables.succeed.Play();
             GameVariables.canvas_vocal.SetActive(true);

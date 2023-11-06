@@ -61,11 +61,9 @@ public class PuzzleGame : MonoBehaviour
                 second_hit = null;
 
             }
-
         }
 
         Check();
-
 
         if (Input.GetKey(KeyCode.Mouse0) && found == false)
         {
@@ -93,26 +91,27 @@ public class PuzzleGame : MonoBehaviour
 
     private void Check()
     {
-
         bool cond1 = hg.transform.position.x >= hg_pos.x - 1 && hg.transform.position.x <= hg_pos.x + 1 && hg.transform.position.y >= hg_pos.y - 1 && hg.transform.position.y <= hg_pos.y + 1;
         bool cond2 = hd.transform.position.x >= hd_pos.x - 1 && hd.transform.position.x <= hd_pos.x + 1 && hd.transform.position.y >= hd_pos.y - 1 && hd.transform.position.y <= hd_pos.y + 1;
         bool cond3 = bg.transform.position.x >= bg_pos.x - 1 && bg.transform.position.x <= bg_pos.x + 1 && bg.transform.position.y >= bg_pos.y - 1 && bg.transform.position.y <= bg_pos.y + 1;
         bool cond4 = bd.transform.position.x >= bd_pos.x - 1 && bd.transform.position.x <= bd_pos.x + 1 && bd.transform.position.y >= bd_pos.y - 1 && bd.transform.position.y <= bd_pos.y + 1;
 
-        if (cond1 && cond2 && cond3 && cond4)
+        if (cond1 && cond2 && cond3 && cond4 && found == false)
         {
             found = true;
-            GameVariables.succeed.Play();
+            
             StartCoroutine(DisableImages());
+
+            hg.gameObject.SetActive(false);
+            hd.gameObject.SetActive(false);
+            bg.gameObject.SetActive(false);
+            bd.gameObject.SetActive(false);
         }
     }
 
     IEnumerator DisableImages()
     {
-        yield return new WaitForSeconds(2f);
-        hg.gameObject.SetActive(false);
-        hd.gameObject.SetActive(false);
-        bg.gameObject.SetActive(false);
-        bd.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        GameVariables.succeed.Play();
     }
 }
