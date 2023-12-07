@@ -35,7 +35,6 @@ public class Typewriter : MonoBehaviour
 
     public void Skip()
     {
-        if (finish)
-            SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
     }
 }

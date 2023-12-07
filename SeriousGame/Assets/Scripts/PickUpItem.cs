@@ -41,7 +41,14 @@ public class PickUpItem : MonoBehaviour
     {
         float distance = Vector3.Distance(cam.transform.position, gameObject.transform.position);
 
-        if (distance < 2.5f && !taken)
+        float threshold = 2.5f;
+
+        if(gameObject.name == "Carla's phone")
+        {
+            threshold = 1.8f;
+        }
+
+        if (distance < threshold && !taken)
         {
             near = gameObject;
             canvas_nearest.SetActive(true);
